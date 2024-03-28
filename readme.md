@@ -2,7 +2,7 @@
 
 Тема: "Студия звукозаписи" 
 
-[Sonar Cloud](https://sonarcloud.io/project/configuration?id=unext2_practice)
+[Sonar Cloud](https://sonarcloud.io/project/overview?id=unext2_practice)
 
 # План проекта
 
