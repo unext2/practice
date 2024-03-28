@@ -2,6 +2,7 @@ package App;
 import DBUtils.DBConnect;
 import com.database.Genres;
 import com.database.Albums;
+import com.database.Album_style;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -87,7 +88,7 @@ public class App {
                 //TODO
                 break;
             case 8:
-                //TODO
+                Album_style.createAlbumStyle();
                 break;
             case 9:
                 //TODO
@@ -123,7 +124,7 @@ public class App {
                 //TODO
                 break;
             case 8:
-                //TODO
+                Album_style.readAlbumStyle();
                 break;
             case 9:
                 //TODO
@@ -159,7 +160,7 @@ public class App {
                 //TODO
                 break;
             case 8:
-                //TODO
+                Album_style.updateAlbumStyle();
                 break;
             case 9:
                 //TODO
@@ -195,7 +196,7 @@ public class App {
                 //TODO
                 break;
             case 8:
-                //TODO
+                Album_style.deleteAlbumStyle();
                 break;
             case 9:
                 //TODO

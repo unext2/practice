@@ -8,35 +8,61 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Genres {
+public class Album_style {
     private int id;
-    private String name;
+    private int genreId;
+    private int albumId;
 
     @Override
     public String toString() {
-        return "Genres{" +
+        return "Albums_style{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", genreId=" + genreId +
+                ", albumId=" + albumId +
                 '}';
     }
 
-    public Genres() {
+    public Album_style() {
     }
 
-    public Genres(int id, String name) {
+    public Album_style(int id, int genreId, int albumId) {
         this.id = id;
-        this.name = name;
+        this.genreId = genreId;
+        this.albumId = albumId;
     }
 
-    static public void createGenre() {
-        System.out.println("Please enter the name of a genre:");
-        Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
-        String query = "INSERT INTO genres (name) VALUES (?)";
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getGenreId() {
+        return genreId;
+    }
+
+    public void setGenreId(int genreId) {
+        this.genreId = genreId;
+    }
+
+    public int getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(int albumId) {
+        this.albumId = albumId;
+    }
+
+    public static void createAlbumStyle() {
+        String query = "INSERT INTO album_style (genre_id, album_id) VALUES (?, ?)";
+        int genreId = 5;
+        int albumId = 2;
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setString(1, name);
+            preparedStatement.setInt(1, genreId);
+            preparedStatement.setInt(2, albumId);
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
@@ -44,27 +70,28 @@ public class Genres {
         }
     }
 
-    static public void readGenres() {
-        List<Genres> genres = new ArrayList<>();
+    public static void readAlbumStyle() {
+        List<Album_style> albumStyles = new ArrayList<>();
         try (Connection connection = DBConnect.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM genres")) {
+             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM album_style")) {
             ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()) {
                 int id = rs.getInt("id");
-                String name = rs.getString("name");
+                int albumId = rs.getInt("album_id");
+                int genreId = rs.getInt("genre_id");
 
-                genres.add(new Genres(id, name));
+                albumStyles.add(new Album_style(id, genreId, albumId));
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
-        System.out.println(genres);
+        System.out.println(albumStyles);
     }
 
-    static public void updateGenre() {
+    public static void updateAlbumStyle() {
         System.out.println("Please enter query:");
         Scanner scanner = new Scanner(System.in);
         String query = scanner.nextLine();
@@ -78,8 +105,8 @@ public class Genres {
         }
     }
 
-    static public void deleteGenres() {
-        String query = "DELETE FROM genres";
+    public static void deleteAlbumStyle() {
+        String query = "DELETE FROM album_style";
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -88,21 +115,5 @@ public class Genres {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }
