@@ -1,5 +1,5 @@
 package com.database;
-import DB.DBConnect;
+import DBUtils.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -65,11 +65,29 @@ public class Genres {
     }
 
     static public void updateGenre() {
+        System.out.println("Please enter query:");
+        Scanner scanner = new Scanner(System.in);
+        String query = scanner.nextLine();
 
+        try (Connection connection = DBConnect.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    static public void deleteGenre() {
+    static public void deleteGenres() {
+        String query = "DELETE FROM genres";
 
+        try (Connection connection = DBConnect.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public int getId() {

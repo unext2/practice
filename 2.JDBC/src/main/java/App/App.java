@@ -1,6 +1,7 @@
 package App;
-import DB.DBConnect;
+import DBUtils.DBConnect;
 import com.database.Genres;
+import com.database.Albums;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -68,7 +69,7 @@ public class App {
                 Genres.createGenre();
                 break;
             case 2:
-                //TODO
+                Albums.createAlbum();
                 break;
             case 3:
                 //TODO
@@ -104,7 +105,7 @@ public class App {
                 Genres.readGenres();
                 break;
             case 2:
-                //TODO
+                Albums.readAlbums();
                 break;
             case 3:
                 //TODO
@@ -140,7 +141,7 @@ public class App {
                 Genres.updateGenre();
                 break;
             case 2:
-                //TODO
+                Albums.updateAlbum();
                 break;
             case 3:
                 //TODO
@@ -173,10 +174,10 @@ public class App {
         int num = selectTable();
         switch (num) {
             case 1:
-                Genres.deleteGenre();
+                Genres.deleteGenres();
                 break;
             case 2:
-                //TODO
+                Albums.deleteAlbums();
                 break;
             case 3:
                 //TODO
@@ -207,15 +208,15 @@ public class App {
 
     private static int selectTable() {
         System.out.println("Choose table:");
-        System.out.println("1) com.database.Genres");
-        System.out.println("2) com.database.Albums");
-        System.out.println("3) com.database.Artists");
-        System.out.println("4) com.database.Employees");
-        System.out.println("5) com.database.Equipment");
-        System.out.println("6) com.database.Songs");
-        System.out.println("7) com.database.Discography");
-        System.out.println("8) com.database.Albums_style");
-        System.out.println("9) com.database.Records");
+        System.out.println("1) Genres");
+        System.out.println("2) Albums");
+        System.out.println("3) Artists");
+        System.out.println("4) Employees");
+        System.out.println("5) Equipment");
+        System.out.println("6) Songs");
+        System.out.println("7) Discography");
+        System.out.println("8) Albums_style");
+        System.out.println("9) Records");
 
         Scanner scanner = new Scanner(System.in);
         int res = 0;

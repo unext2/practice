@@ -1,5 +1,4 @@
-package DB;
-
+package DBUtils;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.DriverManager;
