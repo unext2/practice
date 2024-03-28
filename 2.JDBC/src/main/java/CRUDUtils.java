@@ -8,8 +8,7 @@ public class CRUDUtils {
     private static String UPDATE_GENRE =  "UPDATE genres SET name = ? WHERE id = ?";
     private static String DELETE_GENRE = "DELETE FROM genres WHERE id = ?";
 
-
-    public static List<Genres> getStudentData(String query){
+    public static List<Genres> getStudentData(String query) {
 
         List<Genres> genres = new ArrayList<>();
 

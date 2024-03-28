@@ -1,4 +1,3 @@
-import java.lang.classfile.instruction.ArrayLoadInstruction;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +8,6 @@ import java.util.List;
 public class Genres {
     private int id;
     private String name;
-
 
     @Override
     public String toString() {
@@ -29,7 +27,6 @@ public class Genres {
 
     static public void createGenre() {
         System.out.println("Please enter the name of a genre:");
-        
     }
 
     static public void readGenres() {
