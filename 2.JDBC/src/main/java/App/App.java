@@ -1,17 +1,19 @@
+package App;
+import DB.DBConnect;
+import com.database.Genres;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
         System.out.println("Tables init");
 
-        Connection connection = DBUtils.getConnection();
+        Connection connection = DBConnect.getConnection();
 
         Statement statement = null;
         try {
@@ -132,24 +134,88 @@ public class App {
     }
 
     private static void updateOperation() {
-        //TODO
+        int num = selectTable();
+        switch (num) {
+            case 1:
+                Genres.updateGenre();
+                break;
+            case 2:
+                //TODO
+                break;
+            case 3:
+                //TODO
+                break;
+            case 4:
+                //TODO
+                break;
+            case 5:
+                //TODO
+                return;
+            case 6:
+                //TODO
+                break;
+            case 7:
+                //TODO
+                break;
+            case 8:
+                //TODO
+                break;
+            case 9:
+                //TODO
+                break;
+            default:
+                System.out.println("Wrong number! Exit!");
+                return;
+        }
     }
 
     private static void deleteOperation() {
-        //TODO
+        int num = selectTable();
+        switch (num) {
+            case 1:
+                Genres.deleteGenre();
+                break;
+            case 2:
+                //TODO
+                break;
+            case 3:
+                //TODO
+                break;
+            case 4:
+                //TODO
+                break;
+            case 5:
+                //TODO
+                return;
+            case 6:
+                //TODO
+                break;
+            case 7:
+                //TODO
+                break;
+            case 8:
+                //TODO
+                break;
+            case 9:
+                //TODO
+                break;
+            default:
+                System.out.println("Wrong number! Exit!");
+                return;
+        }
     }
 
     private static int selectTable() {
         System.out.println("Choose table:");
-        System.out.println("1) Genres");
-        System.out.println("2) Albums");
-        System.out.println("3) Artists");
-        System.out.println("4) Employees");
-        System.out.println("5) Equipment");
-        System.out.println("6) Songs");
-        System.out.println("7) Discography");
-        System.out.println("8) Albums_style");
-        System.out.println("9) Records");
+        System.out.println("1) com.database.Genres");
+        System.out.println("2) com.database.Albums");
+        System.out.println("3) com.database.Artists");
+        System.out.println("4) com.database.Employees");
+        System.out.println("5) com.database.Equipment");
+        System.out.println("6) com.database.Songs");
+        System.out.println("7) com.database.Discography");
+        System.out.println("8) com.database.Albums_style");
+        System.out.println("9) com.database.Records");
 
         Scanner scanner = new Scanner(System.in);
         int res = 0;
@@ -159,20 +225,4 @@ public class App {
 
         return res;
     }
-
-
-//        List<Genres> genres = CRUDUtils.getStudentData("SELECT * FROM genres");
-//        System.out.println(genres);
-//
-//        Genres genre = new Genres();
-//        genre.setName("POP");
-//        System.out.println(CRUDUtils.saveGenre(genre));
-//
-//
-//        System.out.println(CRUDUtils.updateGenre(1, "SMTH"));
-//
-//        System.out.println(CRUDUtils.deleteGenre(1));
 }
-
-
-

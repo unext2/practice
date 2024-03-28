@@ -1,9 +1,12 @@
+package com.database;
+import DB.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Genres {
     private int id;
@@ -11,7 +14,7 @@ public class Genres {
 
     @Override
     public String toString() {
-        return "Genres{" +
+        return "com.database.Genres{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
@@ -27,15 +30,27 @@ public class Genres {
 
     static public void createGenre() {
         System.out.println("Please enter the name of a genre:");
+        Scanner scanner = new Scanner(System.in);
+        String name = scanner.nextLine();
+        String query = "INSERT INTO genres (name) VALUES (?)";
+
+        try (Connection connection = DBConnect.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, name);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     static public void readGenres() {
         List<Genres> genres = new ArrayList<>();
-        try (Connection connection = DBUtils.getConnection();
+        try (Connection connection = DBConnect.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM genres")) {
             ResultSet rs = preparedStatement.executeQuery();
 
-            while(rs.next()){
+            while (rs.next()) {
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
 
@@ -47,6 +62,14 @@ public class Genres {
         }
 
         System.out.println(genres);
+    }
+
+    static public void updateGenre() {
+
+    }
+
+    static public void deleteGenre() {
+
     }
 
     public int getId() {

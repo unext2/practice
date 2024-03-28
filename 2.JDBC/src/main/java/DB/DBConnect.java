@@ -1,11 +1,12 @@
+package DB;
+
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Properties;
 
-public class DBUtils {
-    public static Connection getConnection() {
+public class DBConnect {
+    public static java.sql.Connection getConnection() {
         String dbURL = null;
         String dbUsername = null;
         String dbPassword = null;
@@ -30,7 +31,7 @@ public class DBUtils {
             e.printStackTrace();
         }
 
-        Connection connection = null;
+        java.sql.Connection connection = null;
 
         try {
             connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
