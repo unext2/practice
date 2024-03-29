@@ -1,5 +1,6 @@
 package DBUtils;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.util.Properties;
@@ -14,14 +15,17 @@ public class DBConnect {
         Properties properties = new Properties();
 
         try {
-            fis = new FileInputStream("src/main/resources/config.properties");
+            try {
+                fis = new FileInputStream("src/main/resources/config.properties");
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
             properties.load(fis);
-
             dbURL = properties.getProperty("db.host");
             dbUsername = properties.getProperty("db.username");
             dbPassword = properties.getProperty("db.password");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         try {

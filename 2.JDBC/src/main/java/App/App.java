@@ -14,23 +14,29 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         System.out.println("Tables init");
-
-        Connection connection = DBConnect.getConnection();
-
         Statement statement = null;
+        Connection connection = null;
         try {
+            connection = DBConnect.getConnection();
             statement = connection.createStatement();
             String script = "src/main/resources/init.sql";
             String sql = new String(Files.readAllBytes(Paths.get(script)));
-
             statement.executeUpdate(sql);
         } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null)
+                    connection.close();
+                if (statement != null)
+                    statement.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         System.out.println("Init script was successfully executed");
 
         Scanner scanner = new Scanner(System.in);
-
         while (true) {
             System.out.println("Choose operation:");
             System.out.println("1) Create");
@@ -40,7 +46,6 @@ public class App {
             System.out.println("5) Leave");
 
             int choice = scanner.nextInt();
-
             switch (choice) {
                 case 1:
                     createOperation();
