@@ -21,7 +21,7 @@ public class GenreServiceImpl implements GenreService {
     public GenreDto createGenre(GenreDto genreDto) {
         Genre genre = GenreMapper.mapToGenre(genreDto);
         Genre savedGenre = genreRepository.save(genre);
-        return GenreMapper.mapToGenreDto((savedGenre));
+        return GenreMapper.mapToGenreDto(savedGenre);
     }
 
     @Override
