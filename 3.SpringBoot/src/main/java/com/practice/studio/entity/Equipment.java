@@ -11,12 +11,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "employees")
-public class Employee {
+@Table(name = "equipment")
+public class Equipment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "passport_id")
     private Long id;
+
+    @Column(name = "kind")
     private String name;
 }
