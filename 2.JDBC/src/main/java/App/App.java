@@ -18,21 +18,16 @@ public class App {
         Connection connection = null;
         try {
             connection = DBConnect.getConnection();
-            statement = connection.createStatement();
+            try {
+                statement = connection.createStatement();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             String script = "src/main/resources/init.sql";
             String sql = new String(Files.readAllBytes(Paths.get(script)));
             statement.executeUpdate(sql);
         } catch (SQLException | IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                if (connection != null)
-                    connection.close();
-                if (statement != null)
-                    statement.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
         System.out.println("Init script was successfully executed");
 
@@ -78,25 +73,19 @@ public class App {
                 Albums.createAlbum();
                 break;
             case 3:
-                //TODO
                 break;
             case 4:
-                //TODO
                 break;
             case 5:
-                //TODO
                 return;
             case 6:
-                //TODO
                 break;
             case 7:
-                //TODO
                 break;
             case 8:
                 Album_style.createAlbumStyle();
                 break;
             case 9:
-                //TODO
                 break;
             default:
                 System.out.println("Wrong number! Exit!");
@@ -114,25 +103,19 @@ public class App {
                 Albums.readAlbums();
                 break;
             case 3:
-                //TODO
                 break;
             case 4:
-                //TODO
                 break;
             case 5:
-                //TODO
                 return;
             case 6:
-                //TODO
                 break;
             case 7:
-                //TODO
                 break;
             case 8:
                 Album_style.readAlbumStyle();
                 break;
             case 9:
-                //TODO
                 break;
             default:
                 System.out.println("Wrong number! Exit!");
@@ -150,25 +133,19 @@ public class App {
                 Albums.updateAlbum();
                 break;
             case 3:
-                //TODO
                 break;
             case 4:
-                //TODO
                 break;
             case 5:
-                //TODO
                 return;
             case 6:
-                //TODO
                 break;
             case 7:
-                //TODO
                 break;
             case 8:
                 Album_style.updateAlbumStyle();
                 break;
             case 9:
-                //TODO
                 break;
             default:
                 System.out.println("Wrong number! Exit!");
@@ -186,25 +163,19 @@ public class App {
                 Albums.deleteAlbums();
                 break;
             case 3:
-                //TODO
                 break;
             case 4:
-                //TODO
                 break;
             case 5:
-                //TODO
                 return;
             case 6:
-                //TODO
                 break;
             case 7:
-                //TODO
                 break;
             case 8:
                 Album_style.deleteAlbumStyle();
                 break;
             case 9:
-                //TODO
                 break;
             default:
                 System.out.println("Wrong number! Exit!");
