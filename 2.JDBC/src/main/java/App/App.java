@@ -21,13 +21,13 @@ public class App {
             try {
                 statement = connection.createStatement();
             } catch (SQLException e) {
-                e.printStackTrace();
+                return;
             }
             String script = "src/main/resources/init.sql";
             String sql = new String(Files.readAllBytes(Paths.get(script)));
             statement.executeUpdate(sql);
         } catch (SQLException | IOException e) {
-            e.printStackTrace();
+            return;
         }
         System.out.println("Init script was successfully executed");
 

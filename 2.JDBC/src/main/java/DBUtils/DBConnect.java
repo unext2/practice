@@ -18,20 +18,20 @@ public class DBConnect {
             try {
                 fis = new FileInputStream("src/main/resources/config.properties");
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+                return null;
             }
             properties.load(fis);
             dbURL = properties.getProperty("db.host");
             dbUsername = properties.getProperty("db.username");
             dbPassword = properties.getProperty("db.password");
         } catch (IOException e) {
-            e.printStackTrace();
+            return null;
         }
 
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            return null;
         }
 
         java.sql.Connection connection = null;
@@ -39,7 +39,7 @@ public class DBConnect {
         try {
             connection = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
         } catch (Exception e) {
-            e.printStackTrace();
+            return null;
         }
         return connection;
     }
