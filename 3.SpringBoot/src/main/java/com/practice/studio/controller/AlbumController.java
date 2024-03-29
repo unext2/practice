@@ -48,6 +48,6 @@ public class AlbumController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteAlbum(@PathVariable("id") Long albumId) {
         albumService.deleteAlbum(albumId);
-        return ResponseEntity.ok("Genre deleted successfully");
+        return ResponseEntity.ok("Album was deleted successfully!");
     }
 }

@@ -48,6 +48,6 @@ public class GenreController {
     @DeleteMapping("{id}")
     public  ResponseEntity<String> deleteGenre(@PathVariable("id") Long genreId) {
         genreService.deleteGenre((genreId));
-        return ResponseEntity.ok("Genre deleted successfully");
+        return ResponseEntity.ok("Genre was deleted successfully!");
     }
 }
