@@ -46,6 +46,7 @@ public class AlbumServiceImpl implements AlbumService {
                         "Album doesn't exist with given id: \{albumId}"));
         album.setName(updatedAlbum.getName());
         album.setSongs(updatedAlbum.getSongs());
+        album.setGenres(updatedAlbum.getGenres());
         Album updatedAlbumObj = albumRepository.save(album);
         return AlbumMapper.mapToAlbumDto(updatedAlbumObj);
     }

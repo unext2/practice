@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,8 +23,16 @@ public class Album {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     @JsonIgnore
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
     private List<Song> songs;
-    
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "album_genre",
+            joinColumns = @JoinColumn(name = "album_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
+    private Set<Genre> genres;
 }

@@ -8,7 +8,8 @@ public class AlbumMapper {
         return new AlbumDto(
                 album.getId(),
                 album.getName(),
-                album.getSongs()
+                album.getSongs(),
+                album.getGenres()
         );
     }
 
@@ -16,7 +17,8 @@ public class AlbumMapper {
         return new Album(
                 albumDto.getId(),
                 albumDto.getName(),
-                albumDto.getSongs()
+                albumDto.getSongs(),
+                albumDto.getGenres()
         );
     }
 }

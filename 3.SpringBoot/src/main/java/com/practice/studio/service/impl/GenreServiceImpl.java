@@ -45,6 +45,7 @@ public class GenreServiceImpl implements GenreService {
                 new ResourceNotFoundException(STR.
                         "Genre doesn't exist with given id: \{genreId}"));
         genre.setName(updatedGenre.getName());
+        genre.setAlbums(updatedGenre.getAlbums());
         Genre updatedGenreObj = genreRepository.save(genre);
         return GenreMapper.mapToGenreDto(updatedGenreObj);
     }

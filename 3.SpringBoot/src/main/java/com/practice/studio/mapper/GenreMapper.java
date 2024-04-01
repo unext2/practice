@@ -7,14 +7,16 @@ public class GenreMapper {
     public static GenreDto mapToGenreDto(Genre genre) {
         return new GenreDto(
                 genre.getId(),
-                genre.getName()
+                genre.getName(),
+                genre.getAlbums()
         );
     }
 
     public static Genre mapToGenre(GenreDto genreDto) {
         return new Genre(
                 genreDto.getId(),
-                genreDto.getName()
+                genreDto.getName(),
+                genreDto.getAlbums()
         );
     }
 }
