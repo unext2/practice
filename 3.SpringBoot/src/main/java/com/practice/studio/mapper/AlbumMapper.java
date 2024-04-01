@@ -7,14 +7,16 @@ public class AlbumMapper {
     public static AlbumDto mapToAlbumDto(Album album) {
         return new AlbumDto(
                 album.getId(),
-                album.getTitle()
+                album.getName(),
+                album.getSongs()
         );
     }
 
     public static Album mapToAlbum(AlbumDto albumDto) {
         return new Album(
                 albumDto.getId(),
-                albumDto.getTitle()
+                albumDto.getName(),
+                albumDto.getSongs()
         );
     }
 }

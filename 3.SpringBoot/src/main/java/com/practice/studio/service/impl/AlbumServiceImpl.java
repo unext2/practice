@@ -44,7 +44,8 @@ public class AlbumServiceImpl implements AlbumService {
         Album album = albumRepository.findById(albumId).orElseThrow(() ->
                 new ResourceNotFoundException(STR.
                         "Album doesn't exist with given id: \{albumId}"));
-        album.setTitle(updatedAlbum.getTitle());
+        album.setName(updatedAlbum.getName());
+        album.setSongs(updatedAlbum.getSongs());
         Album updatedAlbumObj = albumRepository.save(album);
         return AlbumMapper.mapToAlbumDto(updatedAlbumObj);
     }
