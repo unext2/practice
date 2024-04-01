@@ -106,9 +106,7 @@ public class Albums {
     }
 
     public static void updateAlbum() {
-        System.out.println("Please enter query:");
-        Scanner scanner = new Scanner(System.in);
-        String query = scanner.nextLine();
+        String query = "UPDATE albums SET title = 'smth' WHERE id = 2";
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query)) {
