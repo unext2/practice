@@ -8,7 +8,8 @@ public class SongMapper {
         return new SongDto(
                 song.getId(),
                 song.getName(),
-                song.getAlbum()
+                song.getAlbum(),
+                song.getRecordings()
         );
     }
 
@@ -16,7 +17,8 @@ public class SongMapper {
         return new Song(
                 songDto.getId(),
                 songDto.getName(),
-                songDto.getAlbum()
+                songDto.getAlbum(),
+                songDto.getRecordings()
         );
     }
 }

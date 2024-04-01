@@ -45,6 +45,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 new ResourceNotFoundException(STR.
                         "Employee doesn't exist with given id: \{employeeId}"));
         employee.setName(updatedEmployee.getName());
+        employee.setRecordings(updatedEmployee.getRecordings());
         Employee updatedEmployeeObj = employeeRepository.save(employee);
         return EmployeeMapper.mapToEmployeeDto(updatedEmployeeObj);
     }

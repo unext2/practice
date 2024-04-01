@@ -19,7 +19,7 @@ public class SongController {
     @PostMapping
     public ResponseEntity<SongDto> createSong(@RequestBody SongDto songDto) {
         SongDto savedSong = songService.createSong(songDto);
-        return new ResponseEntity<>(savedSong, HttpStatus.OK);
+        return new ResponseEntity<>(savedSong, HttpStatus.CREATED);
     }
 
     // Build Get Song REST API

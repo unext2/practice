@@ -45,6 +45,7 @@ public class ArtistServiceImpl implements ArtistService {
                 new ResourceNotFoundException(STR.
                         "Artist doesn't exist with given id: \{artistId}"));
         artist.setName(updatedArtist.getName());
+        artist.setRecordings(updatedArtist.getRecordings());
         Artist updatedArtistObj = artistRepository.save(artist);
         return ArtistMapper.mapToArtistDto(updatedArtistObj);
     }

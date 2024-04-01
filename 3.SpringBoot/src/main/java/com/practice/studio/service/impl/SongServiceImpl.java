@@ -46,6 +46,7 @@ public class SongServiceImpl implements SongService {
                         "Song doesn't exists with given id: \{songId}"));
         song.setName(updatedSong.getName());
         song.setAlbum(updatedSong.getAlbum());
+        song.setRecordings(updatedSong.getRecordings());
         Song updatedSongObj = songRepository.save(song);
         return SongMapper.mapToSongDto(updatedSongObj);
     }

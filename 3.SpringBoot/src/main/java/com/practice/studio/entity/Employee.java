@@ -1,10 +1,13 @@
 package com.practice.studio.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,4 +22,8 @@ public class Employee {
     @Column(name = "passport_id")
     private Long id;
     private String name;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.REMOVE)
+    private List<Recording> recordings;
 }

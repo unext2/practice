@@ -22,14 +22,14 @@ public class GenreController {
         return new ResponseEntity<>(savedGenre, HttpStatus.CREATED);
     }
 
-    // Build Get REST API
+    // Build Get Genre REST API
     @GetMapping("{id}")
     public ResponseEntity<GenreDto> getById(@PathVariable("id") Long genreId) {
         GenreDto genreDto = genreService.getGenreById(genreId);
         return ResponseEntity.ok(genreDto);
     }
 
-    // Build GetAll REST API
+    // Build GetAll Genres REST API
     @GetMapping
     public ResponseEntity<List<GenreDto>> getAll() {
         List<GenreDto> genres = genreService.getAllGenres();
