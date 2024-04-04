@@ -1,0 +1,24 @@
+<h2> Song List
+    <button (click)="createSong()" class="btn btn-success btn-md" style="margin-right: 10px" >Create New Song</button>
+</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 5%">Id</th>
+            <th style="width: 61%">Name</th>
+            <th style="width: 20%">Album ID</th>
+            <th style="width: 14%; text-align: right;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let song of songs">
+            <td> {{ song.id }} </td>
+            <td> {{ song.name }} </td>
+            <td> {{ song.album.id }} </td>
+            <td style="text-align: right;">
+                <button (click)="updateSong(song.id)" class="btn btn-info btn-md" style="margin-left: 5px">Update</button>
+                <button (click)="deleteSong(song.id)" class="btn btn-danger btn-md" style="margin-left: 5px">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

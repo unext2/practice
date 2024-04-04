@@ -1,0 +1,22 @@
+<h2> Artist List
+    <button (click)="createArtist()" class="btn btn-success btn-md" style="margin-right: 10px" >Create New Artist</button>
+</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 5%">Id</th>
+            <th style="width: 61%">Name</th>
+            <th style="width: 34%; text-align: right;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let artist of artists">
+            <td> {{ artist.id }} </td>
+            <td> {{ artist.name }} </td>
+            <td style="text-align: right;">
+                <button (click)="updateArtist(artist.id)" class="btn btn-info btn-md" style="margin-left: 10px">Update</button>
+                <button (click)="deleteArtist(artist.id)" class="btn btn-danger btn-md" style="margin-left: 10px">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

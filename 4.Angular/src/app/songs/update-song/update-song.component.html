@@ -1,0 +1,16 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Song </h3>
+    <form (ngSubmit)="onSubmit()"> 
+        <div class="form-group">
+            <label for="name"> Name </label>
+            <input type="text" class="form-control" id="name"
+                [(ngModel)]="song.name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="albumId"> Album ID </label>
+            <input type="number" class="form-control" id="albumId"
+                [(ngModel)]="song.album.id" name="albumId">
+        </div>
+        <button class="btn btn-success mt-2" type="submit">Submit</button>
+    </form>
+</div>

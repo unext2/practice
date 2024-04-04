@@ -1,0 +1,26 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Create Recording </h3>
+    <form (ngSubmit)="onSubmit()"> 
+        <div class="form-group">
+            <label for="artistId"> Artist ID </label>
+            <input type="number" class="form-control" id="artistId"
+                [(ngModel)]="artistId" name="artistId">
+        </div>
+        <div class="form-group">
+            <label for="employeeId"> Employee ID </label>
+            <input type="number" class="form-control" id="employeeId"
+                [(ngModel)]="employeeId" name="employeeId">
+        </div>
+        <div class="form-group">
+            <label for="songId"> Song ID </label>
+            <input type="number" class="form-control" id="songId"
+                [(ngModel)]="songId" name="songId">
+        </div>
+        <div class="form-group">
+            <label for="date"> Date </label>
+            <input type="date" class="form-control" id="date"
+                [(ngModel)]="recording.date" name="date">
+        </div>
+        <button class="btn btn-success mt-2" type="submit">Submit</button>
+    </form>
+</div>

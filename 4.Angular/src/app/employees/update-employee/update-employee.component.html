@@ -1,0 +1,13 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Employee </h3>
+    <form (ngSubmit)="onSubmit()"> 
+
+        <div class="form-group">
+            <label> name </label>
+            <input type="text" class="form-control" id="Id"
+                [(ngModel)]="employee.name" name="name">
+        </div>
+
+        <button class="btn btn-success mt-2" type="submit">Submit</button>
+    </form>
+</div>

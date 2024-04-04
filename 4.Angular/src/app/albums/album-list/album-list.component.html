@@ -1,0 +1,22 @@
+<h2> Album List
+    <button (click)="createAlbum()" class="btn btn-success btn-md" style="margin-right: 10px" >Create New Album</button>
+</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 5%">Id</th>
+            <th style="width: 61%">Name</th>
+            <th style="width: 34%; text-align: right;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let album of albums">
+            <td> {{ album.id }} </td>
+            <td> {{ album.name }} </td>
+            <td style="text-align: right;">
+                <button (click)="updateAlbum(album.id)" class="btn btn-info btn-md" style="margin-left: 10px">Update</button>
+                <button (click)="deleteAlbum(album.id)" class="btn btn-danger btn-md" style="margin-left: 10px">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

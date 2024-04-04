@@ -1,0 +1,28 @@
+<h2> Recording List
+    <button (click)="createRecording()" class="btn btn-success btn-md" style="margin-right: 10px" >Create New Recording</button>
+</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th style="width: 5%">Id</th>
+            <th style="width: 25%">Artist ID</th>
+            <th style="width: 25%">Employee ID</th>
+            <th style="width: 25%">Song ID</th>
+            <th style="width: 20%">Date</th>
+            <th style="width: 14%; text-align: right;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let recording of recordings">
+            <td> {{ recording.id }} </td>
+            <td> {{ recording.artist.id }} </td>
+            <td> {{ recording.employee.id }} </td>
+            <td> {{ recording.song.id }} </td>
+            <td> {{ recording.date }} </td>
+            <td style="text-align: right;">
+                <button (click)="updateRecording(recording.id)" class="btn btn-info btn-md" style="margin-left: 5px">Update</button>
+                <button (click)="deleteRecording(recording.id)" class="btn btn-danger btn-md" style="margin-left: 5px">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
