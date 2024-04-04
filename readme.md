@@ -10,7 +10,7 @@
 2. [JDBC](2.JDBC/) - создание консольного приложения (CRUD-операции) с использованием JDBC.
 3. [Backend на SpringBoot + Hibernate](3.SpringBoot/)
 4. [Angular - Frontend](4.Angular/)
-5. React - Frontend
+5. [React - Frontend](5/React/)
 
 | |Этап|По плану|По факту|
 |---|-----|-----|-----|
