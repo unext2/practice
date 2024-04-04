@@ -48,6 +48,6 @@ public class SongController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteSong(@PathVariable("id") Long songId) {
         songService.deleteSong(songId);
-        return ResponseEntity.ok("Song was deleted successfully!");
+        return ResponseEntity.ok().body("{\"message\": \"Song was deleted successfully!\"}");
     }
 }

@@ -48,6 +48,6 @@ public class RecordingController {
     @DeleteMapping
     public ResponseEntity<String> deleteRecording(@PathVariable("id") Long recordingId) {
         recordingService.deleteRecording(recordingId);
-        return ResponseEntity.ok("Recording was deleted successfully!");
+        return ResponseEntity.ok().body("{\"message\": \"Recording was deleted successfully!\"}");
     }
 }

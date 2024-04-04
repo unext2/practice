@@ -48,6 +48,6 @@ public class EmployeeController {
     @DeleteMapping("{id}")
     public  ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId) {
         employeeService.deleteEmployee(employeeId);
-        return ResponseEntity.ok("Employee was deleted successfully!");
+        return ResponseEntity.ok().body("{\"message\": \"Employee was deleted successfully!\"}");
     }
 }
