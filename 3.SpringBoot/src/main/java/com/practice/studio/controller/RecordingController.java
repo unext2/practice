@@ -45,7 +45,7 @@ public class RecordingController {
     }
 
     // Build DeleteRecording REST API
-    @DeleteMapping
+    @DeleteMapping("{id}")
     public ResponseEntity<String> deleteRecording(@PathVariable("id") Long recordingId) {
         recordingService.deleteRecording(recordingId);
         return ResponseEntity.ok().body("{\"message\": \"Recording was deleted successfully!\"}");
