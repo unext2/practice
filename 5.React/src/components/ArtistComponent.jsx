@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { createEmployee, getEmployee, updateEmployee } from '../services/EmployeeService';
+import { createArtist, getArtist, updateArtist } from '../services/ArtistService';
 import { useNavigate, useParams } from 'react-router-dom';
 
-const EmployeeComponent = () => {
+const ArtistComponent = () => {
   const [name, setName] = useState('');
   const [errors, setErrors] = useState({name: ''});
   const {id} = useParams();
@@ -11,7 +11,7 @@ const EmployeeComponent = () => {
 
   useEffect(() => {
     if(id) {
-      getEmployee(id).then((response) => {
+      getArtist(id).then((response) => {
         setName(response.data.name);
       }).catch(error => {
         console.error(error);
@@ -19,23 +19,23 @@ const EmployeeComponent = () => {
     }
   }, [id]);
 
-  const saveOrUpdateEmployee = (e) => {
+  const saveOrUpdateArtist = (e) => {
     e.preventDefault();
 
     if(validateForm()) {
-      const employee = {name};
-      console.log(employee);
+      const artist = {name};
+      console.log(artist);
       if(id) {
-        updateEmployee(id, employee).then((response) => {
+        updateArtist(id, artist).then((response) => {
           console.log(response.data);
-          navigator('/employees');
+          navigator('/artists');
         }).catch(error => {
           console.error(error);
         });
       } else {
-        createEmployee(employee).then((response) => {
+        createArtist(artist).then((response) => {
           console.log(response.data);
-          navigator('/employees');
+          navigator('/artists');
         }).catch(error => {
           console.error(error);
         });
@@ -61,10 +61,10 @@ const EmployeeComponent = () => {
 
   function pageTitle() {
     if(id) {
-      return <h2 className='text-center'>Update employee</h2>
+      return <h2 className='text-center'>Update Artist</h2>
     }
     else {
-      return <h2 className='text-center'>Add employee</h2>
+      return <h2 className='text-center'>Add Artist</h2>
     }
   }
 
@@ -79,10 +79,10 @@ const EmployeeComponent = () => {
           <div className='card-body'>
             <form>
               <div className='form-group mb-2'>
-                <label className='form-label'>name:</label>
+                <label className='form-label'>Name:</label>
                 <input
                   type='text'
-                  placeholder='Enter Employee Name'
+                  placeholder='Enter Artist Name'
                   name='name'
                   value={name}
                   className={`form-control ${errors.name ? 'is-invalid': ''}`}
@@ -91,7 +91,7 @@ const EmployeeComponent = () => {
                 </input>
                 {errors.name && <div className='invalid-feedback'>{errors.name}</div>}
               </div>
-              <button className='btn btn-success' onClick={saveOrUpdateEmployee}>Submit</button>
+              <button className='btn btn-success' onClick={saveOrUpdateArtist}>Submit</button>
             </form>
           </div>
 
@@ -103,4 +103,4 @@ const EmployeeComponent = () => {
   )
 }
 
-export default EmployeeComponent
+export default ArtistComponent;
