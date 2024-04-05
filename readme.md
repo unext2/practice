@@ -18,4 +18,4 @@
 |2|JDBC|12|12|
 |3|Backend|12|12|
 |4|Angular|12|15|
-|5|React|12|.|
+|5|React|12|7|
