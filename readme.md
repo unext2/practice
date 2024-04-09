@@ -19,3 +19,5 @@
 |3|Backend|12|12|
 |4|Angular|12|15|
 |5|React|12|7|
+|6|Refinement|6|6|
+|*|Total|60|58|
