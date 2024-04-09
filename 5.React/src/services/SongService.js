@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const REST_API_BASE_URL = 'http://localhost:8080/api/songs';
+const REST_API_BASE_URL = `${import.meta.env.VITE_BASE_URL}/songs`;
 
 export const listSongs = () => axios.get(REST_API_BASE_URL);
 

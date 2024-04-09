@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Album } from '../model/album';
+import { environment } from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlbumService {
-  private baseUrl = "http://localhost:8080/api/albums";
+  private baseUrl = `${environment.baseUrl}/albums`;
 
   constructor(private httpClient: HttpClient) { }
 

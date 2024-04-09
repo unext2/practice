@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const REST_API_BASE_URL = 'http://localhost:8080/api/albums';
+const REST_API_BASE_URL = `${import.meta.env.VITE_BASE_URL}/albums`;
 
 export const listAlbums = () => axios.get(REST_API_BASE_URL);
 

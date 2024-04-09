@@ -50,7 +50,7 @@ const ListEmployeeComponent = () => {
             </thead>
             <tbody>
                 {
-                    employees.map(employee =>
+                   Array.isArray(employees) && employees.map(employee =>
                         <tr key={employee.id}>
                             <td>{employee.id}</td>
                             <td>{employee.name}</td>

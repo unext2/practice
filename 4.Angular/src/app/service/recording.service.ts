@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recording } from '../model/recording';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecordingService {
-  private baseUrl = "http://localhost:8080/api/recordings";
+  private baseUrl = `${environment.baseUrl}/recordings`;
 
   constructor(private httpClient: HttpClient) { }
 
