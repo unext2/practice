@@ -47,7 +47,7 @@ const ListSongComponent = () => {
                     <tr>
                         <th>Song ID</th>
                         <th>Song Name</th>
-                        <th>Album ID</th>
+                        <th>Album</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -56,7 +56,7 @@ const ListSongComponent = () => {
                         <tr key={song.id}>
                             <td>{song.id}</td>
                             <td>{song.name}</td>
-                            <td>{song.album.id}</td>
+                            <td>{song.album.name}</td>
                             <td>
                                 <button className='btn btn-primary' onClick={() => updateSong(song.id)}>Update</button>
                                 <button className='btn btn-danger ml-2' onClick={() => removeSong(song.id)}

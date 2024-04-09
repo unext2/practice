@@ -15,9 +15,9 @@ const ListRecordingComponent = () => {
             .then((response) => {
                 const transformedRecordings = response.data.map(recording => ({
                     id: recording.id,
-                    song_id: recording.song.id,
-                    artist_id: recording.artist.id,
-                    employee_id: recording.employee.id,
+                    song: recording.song,
+                    artist: recording.artist,
+                    employee: recording.employee,
                     date: recording.date
                 }));
                 setRecordings(transformedRecordings);
@@ -53,9 +53,9 @@ const ListRecordingComponent = () => {
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Song ID</th>
-                        <th>Artist ID</th>
-                        <th>Employee ID</th>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Employee</th>
                         <th>Date</th>
                         <th>Actions</th>
                     </tr>
@@ -64,9 +64,9 @@ const ListRecordingComponent = () => {
                     {recordings.map(recording => (
                         <tr key={recording.id}>
                             <td>{recording.id}</td>
-                            <td>{recording.song_id}</td>
-                            <td>{recording.artist_id}</td>
-                            <td>{recording.employee_id}</td>
+                            <td>{recording.song.name}</td>
+                            <td>{recording.artist.name}</td>
+                            <td>{recording.employee.name}</td>
                             <td>{recording.date}</td>
                             <td>
                                 <button className='btn btn-primary' onClick={() => handleUpdateRecording(recording.id)}>Update</button>
