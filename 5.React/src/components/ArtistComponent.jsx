@@ -70,7 +70,6 @@ const ArtistComponent = () => {
 
   return (
     <div className='container'>
-      <br></br> <br></br>
       <div className='row'>
         <div className='card col-md-6 offset-md-3 offset-md-3'>
           {

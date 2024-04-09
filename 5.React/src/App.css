@@ -7,3 +7,9 @@
     text-align: center;
     color: white;
 }
+
+.container {
+    margin-top: 20px; /* Отступ сверху */
+    margin-bottom: 20px; /* Отступ снизу */
+  }
+  
